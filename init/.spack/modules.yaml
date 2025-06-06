@@ -1,0 +1,28 @@
+modules:
+  default:
+    tcl:
+      hide_implicits: true
+      exclude:
+        - python@3.11.12
+      projections:
+        all: '{name}/{version}-{compiler.name}'
+        '%oneapi': '{name}/{version}-oneapi'
+        # '%nvhpc': '{name}/{version}-nvhpc'
+        '%gcc': '{name}/{version}-{compiler.name}-{compiler.version}'
+      hash_length: 0
+      hypre:
+        environment:
+          set:
+            HYPRE: "{prefix}"
+      hdf5:
+        environment:
+          set:
+            "HDF5_ROOT": "{prefix}"
+            "HDF5DIR": "{prefix}/lib"
+            "HDF5INCLUDE": "{prefix}/include"
+    lmod:
+      core_compilers:
+      - gcc@=12.2.0
+    enable:
+    - tcl
+    # - lmod

@@ -1,0 +1,57 @@
+compilers:
+  - compiler:
+      spec: gcc@=12.2.0
+      paths:
+        cc: /usr/bin/gcc
+        cxx: /usr/bin/g++
+        f77: /usr/bin/gfortran
+        fc: /usr/bin/gfortran
+      flags: {}
+      operating_system: debian12
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: nvhpc@=25.1
+      paths:
+        c: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvc
+        cxx: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvc++
+        fc: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvfortran
+        f77: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvfortran
+      flags:
+        ldflags: -L/usr/lib/wsl/lib -Mpi -Mscalapack -cudalib=cusparse,cublas,curand
+      operating_system: debian12
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: oneapi@=2023.2.0
+      paths:
+        cc: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/icx
+        cxx: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/icpx
+        f77: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/ifx
+        fc: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/ifx
+      flags: {}
+      operating_system: debian12
+      target: x86_64
+      modules: []
+      environment: {}
+      extra_rpaths: []
+  - compiler:
+      spec: intel@=2021.10.0
+      paths:
+        cc: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/intel64/icc
+        cxx: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/intel64/icpc
+        f77: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/intel64/ifort
+        fc: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/intel64/ifort
+      flags: {}
+      operating_system: debian12
+      target: x86_64
+      modules: []
+      environment:
+        prepend_path:
+          LD_LIBRARY_PATH: /opt/intel/oneapi/compiler/2023.2.0/linux/compiler/lib/intel64
+          LIBRARY_PATH: /opt/intel/oneapi/compiler/2023.2.0/linux/compiler/lib/intel64
+      extra_rpaths: []

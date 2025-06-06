@@ -1,0 +1,11 @@
+export SPACK_ROOT=/opt/spack
+export SPACK_PYTHON=/opt/python/miniforge3/bin/python
+export SPACK_ARCH=linux-debian12-skylake
+add_path() {
+    if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+add_path ${SPACK_ROOT}/bin
+add_module ${SPACK_ROOT}/share/spack/modules/${SPACK_ARCH}
+
