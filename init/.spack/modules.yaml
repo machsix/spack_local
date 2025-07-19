@@ -6,6 +6,7 @@ modules:
         - python@3.11.12
       projections:
         all: '{name}/{version}-{compiler.name}'
+        '+openmp': '{name}/{version}-{compiler.name}-openmp'
         '%oneapi': '{name}/{version}-oneapi'
         # '%nvhpc': '{name}/{version}-nvhpc'
         '%gcc': '{name}/{version}-{compiler.name}-{compiler.version}'
@@ -14,6 +15,7 @@ modules:
         environment:
           set:
             HYPRE: "{prefix}"
+            LD_LIBRARY_PATH: "{prefix}/lib"
       hdf5:
         environment:
           set:
