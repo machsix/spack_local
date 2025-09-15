@@ -1,0 +1,84 @@
+compilers:
+- compiler:
+    spec: intel@=2021.10.0
+    paths:
+      cc: /opt/intel/oneapi/compiler/latest/linux/bin/intel64/icc
+      cxx: /opt/intel/oneapi/compiler/latest/linux/bin/intel64/icpc
+      f77: /opt/intel/oneapi/compiler/latest/linux/bin/intel64/ifort
+      fc: /opt/intel/oneapi/compiler/latest/linux/bin/intel64/ifort
+    flags:
+      cppflags: "-gcc-name=/usr/bin/gcc-12"
+      cflags: "-gcc-name=/usr/bin/gcc-12"
+    operating_system: debian13
+    target: x86_64
+    modules: [intel/2023.2.0]
+    environment: {}
+    extra_rpaths:
+    - /usr/lib/gcc/x86_64-linux-gnu/12
+- compiler:
+    spec: oneapi@=2023.2.0
+    paths:
+      cc: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/icx
+      cxx: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/icpx
+      f77: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/ifx
+      fc: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/ifx
+    flags: {}
+    operating_system: debian13
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+- compiler:
+    spec: clang@=19.1.7
+    paths:
+      cc: /usr/bin/clang
+      cxx: /usr/bin/clang++
+      f77: null
+      fc: null
+    flags: {}
+    operating_system: debian13
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+- compiler:
+    spec: gcc@=14.2.0
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    flags: {}
+    operating_system: debian13
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+- compiler:
+    spec: gcc@=12.4.0
+    paths:
+      cc: /usr/bin/gcc-12
+      cxx: /usr/bin/g++-12
+      f77: null
+      fc: null
+    flags: {}
+    operating_system: debian13
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+- compiler:
+    spec: nvhpc@=25.1
+    paths:
+      cc: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvc
+      cxx: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvc++
+      f77: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvfortran
+      fc: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvfortran
+    operating_system: debian13
+    target: x86_64
+    modules: [nvhpc/25.1]
+    extra_rpaths: []
+    environment:
+      set:
+        CXXFLAGS: --gcc-toolchain=/usr/bin/gcc-12
+        CFLAGS: --gcc-toolchain=/usr/bin/g++-12

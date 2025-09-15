@@ -1,0 +1,3 @@
+concretizer:
+  os_compatible:
+    debian12: [ubuntu22.04]

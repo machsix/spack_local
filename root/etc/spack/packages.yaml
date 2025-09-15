@@ -1,0 +1,188 @@
+packages:
+  llvm:
+    externals:
+    - spec: llvm@19.1.7+clang~lld~lldb
+      prefix: /usr
+      extra_attributes:
+        compilers:
+          c: /usr/bin/clang
+          cxx: /usr/bin/clang++
+  python:
+    externals:
+    - spec: python@3.12.11+bz2+crypt+ctypes+dbm+lzma+nis+pyexpat+pythoncmd+readline+sqlite3+ssl+tix+tkinter+uuid+zlib
+      prefix: /opt/python/miniforge3
+  nvhpc:
+    externals:
+    - spec: nvhpc@25.1+blas+lapack+mpi+scalapack
+      prefix: /opt/nvidia/hpc_sdk
+      extra_attributes:
+        compilers:
+          c: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvc
+          cxx: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvc++
+          fortran: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/compilers/bin/nvfortran
+  cuda:
+    externals:
+    - spec: cuda@12.6
+      prefix: /opt/nvidia/hpc_sdk/Linux_x86_64/25.1/cuda/12.6
+    buildable: false
+  m4:
+    externals:
+    - spec: m4@1.4.19
+      prefix: /usr
+  automake:
+    externals:
+    - spec: automake@1.17
+      prefix: /usr
+  libtool:
+    externals:
+    - spec: libtool@2.5.4
+      prefix: /usr
+  findutils:
+    externals:
+    - spec: findutils@4.10.0
+      prefix: /usr
+  coreutils:
+    externals:
+    - spec: coreutils@9.7
+      prefix: /usr
+  pkgconf:
+    externals:
+    - spec: pkgconf@1.8.1
+      prefix: /usr
+  groff:
+    externals:
+    - spec: groff@1.23.0
+      prefix: /usr
+  git:
+    externals:
+    - spec: git@2.47.3~tcltk
+      prefix: /usr
+  zlib:
+    externals:
+    - spec: zlib@1.3.1
+      prefix: /usr
+  autoconf:
+    externals:
+    - spec: autoconf@2.72
+      prefix: /usr
+  cmake:
+    externals:
+    - spec: cmake@3.31.6
+      prefix: /usr
+  doxygen:
+    externals:
+    - spec: doxygen@1.9.8+graphviz~mscgen
+      prefix: /usr
+  perl:
+    externals:
+    - spec: perl@5.40.1~cpanm+opcode+open+shared+threads
+      prefix: /usr
+  sed:
+    externals:
+    - spec: sed@4.9
+      prefix: /usr
+  ninja:
+    externals:
+    - spec: ninja@1.12.1
+      prefix: /usr
+  gettext:
+    externals:
+    - spec: gettext@0.23.1
+      prefix: /usr
+  openssl:
+    externals:
+    - spec: openssl@3.5.1
+      prefix: /usr
+  gawk:
+    externals:
+    - spec: gawk@5.2.1
+      prefix: /usr
+  diffutils:
+    externals:
+    - spec: diffutils@3.10
+      prefix: /usr
+  tar:
+    externals:
+    - spec: tar@1.35
+      prefix: /usr
+  binutils:
+    externals:
+    - spec: binutils@2.44~gold~headers
+      prefix: /usr
+  ccache:
+    externals:
+    - spec: ccache@4.11.2
+      prefix: /usr
+  curl:
+    externals:
+    - spec: curl@8.14.1+gssapi+ldap+nghttp2
+      prefix: /usr
+  flex:
+    externals:
+    - spec: flex@2.6.4+lex
+      prefix: /usr
+  subversion:
+    externals:
+    - spec: subversion@1.14.5
+      prefix: /usr
+  gmake:
+    externals:
+    - spec: gmake@4.4.1
+      prefix: /usr
+  openssh:
+    externals:
+    - spec: openssh@10.0p2
+      prefix: /usr
+  bison:
+    externals:
+    - spec: bison@3.8.2
+      prefix: /usr
+  swig:
+    externals:
+    - spec: swig@4.3.0
+      prefix: /usr
+  xz:
+    externals:
+    - spec: xz@5.8.1
+      prefix: /usr
+  ncurses:
+    externals:
+    - spec: ncurses@6.5.20250216+termlib abi=6
+      prefix: /usr
+  all:
+    providers:
+      blas:
+      - intel-oneapi-mkl
+      - nvhpc
+      lapack:
+      - intel-oneapi-mkl
+      - nvhpc
+      scalapack:
+      - intel-oneapi-mkl
+      - nvhpc
+  intel-oneapi-compilers:
+    externals:
+    - spec: intel-oneapi-compilers@2023.2.0
+      prefix: /opt/intel/oneapi/compiler/2023.2.0/linux
+      extra_attributes:
+        compilers:
+          c: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/icx
+          cxx: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/icpx
+          fortran: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/ifx
+  # intel:
+  #   externals:
+  #   - spec: intel@2021.10.0
+  #     prefix: /opt/intel/oneapi/compiler/2023.2.0/linux
+  #     extra_attributes:
+  #       compilers:
+  #         c: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/intel64/icc
+  #         cxx: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/intel64/icpc
+  #         fortran: /opt/intel/oneapi/compiler/2023.2.0/linux/bin/intel64/ifort
+  intel-oneapi-mpi:
+    externals:
+    - spec: intel-oneapi-mpi@2021.10.0+classic-names
+      prefix: /opt/intel/oneapi
+  intel-oneapi-mkl:
+    externals:
+    - spec: intel-oneapi-mkl@2023.2.0+cluster
+      prefix: /opt/intel/oneapi
